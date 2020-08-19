@@ -21,14 +21,58 @@ namespace FunkoCollection
         Funimantion,
         LAComicCon,
         FunkoStore,
-        MarvelCollectorsCore
+        MarvelCollectorsCore,
+        SDCC,
+        NYCC,
+        PX,
+        GalacticToys
 
+    }
+
+    public enum Series
+    {
+        Marvel,
+        MarvelBlackLight,
+        Marvel80Years,
+        DragonBallSuper,
+        DragonBallZ,
+        BlackPanther,
+        IronMan3,
+        Preacher,
+        DC,
+        Venom,
+
+    }
+
+    public enum PopLine
+    {
+        Pop,
+        PopMovies,
+        PopHeroes,
+        PopAnimation,
+        PopRocks,
+        Marvel
+    }
+
+    public enum Chrome
+    {
+        Red,
+        Blue,
+        Purple,
+        Orange,
+        Green,
+        Yellow,
+        None
     }
 
     public class Funko
     {
         private string name;
         private Exclusive store;
+        private Series series;
+        private PopLine line;
+        private bool glowInTheDark;
+        private Chrome color;
         //private bool valuted;
 
         public string Name
@@ -55,6 +99,54 @@ namespace FunkoCollection
             }
         }
 
+        public Series SeriesName
+        {
+            get
+            {
+                return series;
+            }
+            set
+            {
+                series = value;
+            }
+        }
+
+        public PopLine LineName
+        {
+            get
+            {
+                return line;
+            }
+            set
+            {
+                line = value;
+            }
+        }
+
+        public bool GlowInTheDark
+        {
+            get
+            {
+                return glowInTheDark;
+            }
+            set
+            {
+                glowInTheDark = value;
+            }
+        }
+
+        public Chrome Color
+        {
+            get
+            {
+                return color;
+            }
+            set
+            {
+                color = value;
+            }
+        }
+
         //public bool Valuted
         //{
         //    get
@@ -71,10 +163,15 @@ namespace FunkoCollection
         public static List<Funko> funkoPopList = new List<Funko>();
 
 
-        public Funko(string characterName, Exclusive storeExclusive)
+        public Funko(string characterName, Series seriesTitle, PopLine lineTitle, Exclusive storeExclusive, bool GITD, Chrome color)
         {
             Name = characterName;
+            SeriesName = seriesTitle;
+            LineName = lineTitle;
             Store = storeExclusive;
+            GlowInTheDark = GITD;
+            Color = color;
+
             //this.Valuted = Valuted;
         }
 
@@ -117,6 +214,24 @@ namespace FunkoCollection
             }
         }
 
+        public static void Search()
+        {
+            Console.WriteLine("What Pop are you searching for?");
+
+            string character = Console.ReadLine();
+
+            int index = Funko.funkoPopList.FindIndex(f => f.Name == character);
+
+            if (index > 0 && index < Funko.funkoPopList.Count)
+            {
+                Console.WriteLine($"You already have {character}");
+            }
+            else
+            {
+                Console.WriteLine($"You don't have {character}");
+            }
+        }
+
         //public override string ToString()
         //{
         //    return string.Format("{0,-36}{1,6}", $"{Name}", $"{Store}");
@@ -126,12 +241,21 @@ namespace FunkoCollection
         public static void AddPopsToList()
         {
 
-            funkoPopList.Add(new Funko("Super Saiyan Rose", Exclusive.HotTopic));
-            funkoPopList.Add(new Funko("Super Saiyan Vegeta (Red Chrome)", Exclusive.HotTopic));
-            funkoPopList.Add(new Funko("Super Saiyan Vegeta (Blue Chrome)", Exclusive.ToyTokyo));
-            funkoPopList.Add(new Funko("Carnage", Exclusive.FYE));
-            funkoPopList.Add(new Funko("Carnage", Exclusive.Common));
-            funkoPopList.Add(new Funko("Iron Man", Exclusive.Common));
+            funkoPopList.Add(new Funko("Super Saiyan Rose", Series.DragonBallSuper, PopLine.PopAnimation, Exclusive.HotTopic, false, Chrome.None));
+            funkoPopList.Add(new Funko("Super Saiyan Vegeta (Red Chrome)", Series.DragonBallZ, PopLine.PopAnimation, Exclusive.HotTopic, false, Chrome.Red));
+            funkoPopList.Add(new Funko("Super Saiyan Vegeta (Blue Chrome)", Series.DragonBallZ, PopLine.PopAnimation, Exclusive.ToyTokyo, false, Chrome.Blue));
+            funkoPopList.Add(new Funko("Carnage", Series.Venom, PopLine.Pop, Exclusive.FYE, false, Chrome.None));
+            funkoPopList.Add(new Funko("Carnage", Series.Venom, PopLine.Pop, Exclusive.Common, false, Chrome.None));
+            funkoPopList.Add(new Funko("Carnage", Series.Venom, PopLine.Pop, Exclusive.NYCC, false, Chrome.None));
+            funkoPopList.Add(new Funko("Carnage",Series.Marvel, PopLine.Marvel, Exclusive.HotTopic, false, Chrome.None));
+            funkoPopList.Add(new Funko("Anti-Venom", Series.Marvel, PopLine.Marvel, Exclusive.HotTopic, false, Chrome.None));
+            funkoPopList.Add(new Funko("Anti-Venom", Series.Marvel, PopLine.Marvel, Exclusive.BoxLunch, true, Chrome.None));
+            funkoPopList.Add(new Funko("Iron Man", Series.Marvel, PopLine.Marvel, Exclusive.Common, false, Chrome.None));
+            funkoPopList.Add(new Funko("Iron Man", Series.Marvel, PopLine.Marvel, Exclusive.Common, false, Chrome.Red));
+            funkoPopList.Add(new Funko("Iron Man", Series.Marvel, PopLine.Marvel, Exclusive.Common, false, Chrome.None));
+            funkoPopList.Add(new Funko("Iron Man", Series.Marvel, PopLine.Marvel, Exclusive.Common, false, Chrome.None));
+            funkoPopList.Add(new Funko("Iron Man", Series.Marvel, PopLine.Marvel, Exclusive.Common, false, Chrome.None));
+
             funkoPopList.Add(new Funko("Super Saiyan God Goku", Exclusive.Funimantion));
             funkoPopList.Add(new Funko("Super Saiyan God Super Saiyan Goku", Exclusive.HotTopic));
             funkoPopList.Add(new Funko("Killmonger", Exclusive.Common));
@@ -178,19 +302,438 @@ namespace FunkoCollection
             funkoPopList.Add(new Funko("Venom (Leathal Protector)", Exclusive.MarvelCollectorsCore));
             funkoPopList.Add(new Funko("Iron Spider with Nano Gaunlet", Exclusive.Common));
             funkoPopList.Add(new Funko("Iron Spiderman", Exclusive.Walgreens));
+            funkoPopList.Add(new Funko("Spider-Man (I Love Pi Shirt)", Exclusive.BoxLunch));
+            funkoPopList.Add(new Funko("Notorious B.I.G with Crown", Exclusive.FunkoStore));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.)); 
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+            funkoPopList.Add(new Funko("", Exclusive.));
+
+
+
+
         }
 
-        // The IndexOf method searches for an item and returns the index of the item. 
-
-        //string index = funkoPopList.IndexOf("Iron Man");
-        //if (index == -1)
-        //{
-        //    Console.WriteLine($"When an item is not found, IndexOf returns {index}");
-        //}
-        //else
-        //{
-        //    Console.WriteLine($"The pop {listOfFunkos[9]} is at index {index}");
-        //}
 
     }
 }
