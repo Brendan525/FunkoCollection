@@ -1,17 +1,23 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workbench>
+﻿<Properties StartupConfiguration="{D395C6FB-970E-408F-A4A9-08AD46C7D4B5}|Default">
+  <MonoDevelop.Ide.ItemProperties.FunkoCollection PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Funko.cs">
+    <Files>
+      <File FileName="Program.cs" Line="8" Column="40" />
+      <File FileName="Funko.cs" Line="295" Column="64" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="FunkoCollection" expanded="True" />
+          <Node name="FunkoCollection" expanded="True">
+            <Node name="FunkoCollection" expanded="True">
+              <Node name="Funko.cs" selected="True" />
+            </Node>
+          </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <DisabledProjects>
-    <String>FunkoCollection/FunkoCollection.csproj</String>
-  </DisabledProjects>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|anycpu" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
