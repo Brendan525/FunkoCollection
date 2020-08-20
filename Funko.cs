@@ -34,6 +34,7 @@ namespace FunkoCollection
         Marvel,
         MarvelBlackLight,
         Marvel80Years,
+        MarvelStudiosTheFirstTenYears,
         DragonBallSuper,
         DragonBallZ,
         BlackPanther,
@@ -41,6 +42,13 @@ namespace FunkoCollection
         Preacher,
         DC,
         Venom,
+        AvengersInfinityWar,
+        AvengersEndGame,
+        CaptainAmericaCivilWar,
+        AvengersAgeOfUltron,
+        DragonBallZResurrectionF,
+        AvengersAssemble,
+
 
     }
 
@@ -58,6 +66,7 @@ namespace FunkoCollection
     {
         Red,
         Blue,
+        Gold,
         Purple,
         Orange,
         Green,
@@ -73,6 +82,8 @@ namespace FunkoCollection
         private PopLine line;
         private bool glowInTheDark;
         private Chrome color;
+        private bool chase;
+        private int quantity;
         //private bool valuted;
 
         public string Name
@@ -147,6 +158,30 @@ namespace FunkoCollection
             }
         }
 
+        public bool Chase
+        {
+            get
+            {
+                return chase;
+            }
+            set
+            {
+                chase = value;
+            }
+        }
+
+        public int Quantity
+        {
+            get
+            {
+                return quantity;
+            }
+            set
+            {
+                quantity = value;
+            }
+        }
+
         //public bool Valuted
         //{
         //    get
@@ -163,15 +198,16 @@ namespace FunkoCollection
         public static List<Funko> funkoPopList = new List<Funko>();
 
 
-        public Funko(string characterName, Series seriesTitle, PopLine lineTitle, Exclusive storeExclusive, bool GITD, Chrome color)
+        public Funko(string characterName, Series seriesTitle, PopLine lineTitle, Exclusive storeExclusive, bool GITD, Chrome theColor, bool isChase , int theQuantity)
         {
             Name = characterName;
             SeriesName = seriesTitle;
             LineName = lineTitle;
             Store = storeExclusive;
             GlowInTheDark = GITD;
-            Color = color;
-
+            Color = theColor;
+            Chase = isChase;
+            Quantity = theQuantity;
             //this.Valuted = Valuted;
         }
 
@@ -180,6 +216,7 @@ namespace FunkoCollection
         {
             funkoPopList.Add(character);
         }
+
 
         public static void RemovePop(Funko character)
         {
@@ -214,6 +251,7 @@ namespace FunkoCollection
             }
         }
 
+
         public static void Search()
         {
             Console.WriteLine("What Pop are you searching for?");
@@ -241,28 +279,38 @@ namespace FunkoCollection
         public static void AddPopsToList()
         {
 
-            funkoPopList.Add(new Funko("Super Saiyan Rose", Series.DragonBallSuper, PopLine.PopAnimation, Exclusive.HotTopic, false, Chrome.None));
-            funkoPopList.Add(new Funko("Super Saiyan Vegeta (Red Chrome)", Series.DragonBallZ, PopLine.PopAnimation, Exclusive.HotTopic, false, Chrome.Red));
-            funkoPopList.Add(new Funko("Super Saiyan Vegeta (Blue Chrome)", Series.DragonBallZ, PopLine.PopAnimation, Exclusive.ToyTokyo, false, Chrome.Blue));
-            funkoPopList.Add(new Funko("Carnage", Series.Venom, PopLine.Pop, Exclusive.FYE, false, Chrome.None));
-            funkoPopList.Add(new Funko("Carnage", Series.Venom, PopLine.Pop, Exclusive.Common, false, Chrome.None));
-            funkoPopList.Add(new Funko("Carnage", Series.Venom, PopLine.Pop, Exclusive.NYCC, false, Chrome.None));
-            funkoPopList.Add(new Funko("Carnage",Series.Marvel, PopLine.Marvel, Exclusive.HotTopic, false, Chrome.None));
-            funkoPopList.Add(new Funko("Anti-Venom", Series.Marvel, PopLine.Marvel, Exclusive.HotTopic, false, Chrome.None));
-            funkoPopList.Add(new Funko("Anti-Venom", Series.Marvel, PopLine.Marvel, Exclusive.BoxLunch, true, Chrome.None));
-            funkoPopList.Add(new Funko("Iron Man", Series.Marvel, PopLine.Marvel, Exclusive.Common, false, Chrome.None));
-            funkoPopList.Add(new Funko("Iron Man", Series.Marvel, PopLine.Marvel, Exclusive.Common, false, Chrome.Red));
-            funkoPopList.Add(new Funko("Iron Man", Series.Marvel, PopLine.Marvel, Exclusive.Common, false, Chrome.None));
-            funkoPopList.Add(new Funko("Iron Man", Series.Marvel, PopLine.Marvel, Exclusive.Common, false, Chrome.None));
-            funkoPopList.Add(new Funko("Iron Man", Series.Marvel, PopLine.Marvel, Exclusive.Common, false, Chrome.None));
-
-            funkoPopList.Add(new Funko("Super Saiyan God Goku", Exclusive.Funimantion));
-            funkoPopList.Add(new Funko("Super Saiyan God Super Saiyan Goku", Exclusive.HotTopic));
-            funkoPopList.Add(new Funko("Killmonger", Exclusive.Common));
-            funkoPopList.Add(new Funko("Killmonger (Mask)", Exclusive.Common));
-            funkoPopList.Add(new Funko("Black Panther (GITD)", Exclusive.Target));
-            funkoPopList.Add(new Funko("Moon Knight (LA Comic Con)", Exclusive.LAComicCon));
-            funkoPopList.Add(new Funko("Moon Knight", Exclusive.Walgreens));
+            funkoPopList.Add(new Funko("Super Saiyan Rose", Series.DragonBallSuper, PopLine.PopAnimation, Exclusive.HotTopic, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Super Saiyan Vegeta", Series.DragonBallZ, PopLine.PopAnimation, Exclusive.HotTopic, false, Chrome.Red, false, 1));
+            funkoPopList.Add(new Funko("Super Saiyan Vegeta", Series.DragonBallZ, PopLine.PopAnimation, Exclusive.ToyTokyo, false, Chrome.Blue, false, 1));
+            funkoPopList.Add(new Funko("Carnage", Series.Venom, PopLine.Pop, Exclusive.FYE, false, Chrome.None, false, 2));
+            funkoPopList.Add(new Funko("Carnage", Series.Venom, PopLine.Pop, Exclusive.Common, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Carnage", Series.Venom, PopLine.Pop, Exclusive.NYCC, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Carnage",Series.Marvel, PopLine.Marvel, Exclusive.HotTopic, false, Chrome.None, false, 2));
+            funkoPopList.Add(new Funko("Anti-Venom", Series.Marvel, PopLine.Marvel, Exclusive.HotTopic, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Anti-Venom", Series.Marvel, PopLine.Marvel, Exclusive.BoxLunch, true, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Anti-Venom", Series.Venom, PopLine.Pop, Exclusive.BoxLunch, true, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Iron Man", Series.Marvel, PopLine.Marvel, Exclusive.Common, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Iron Man", Series.AvengersInfinityWar, PopLine.Pop, Exclusive.Target, false, Chrome.Red, false, 1));
+            funkoPopList.Add(new Funko("Iron Man", Series.AvengersEndGame, PopLine.Pop, Exclusive.NYCC, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Iron Man (I Am Iron Man)", Series.AvengersEndGame, PopLine.Pop, Exclusive.PX, true, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Iron Man (Unmasked)", Series.CaptainAmericaCivilWar, PopLine.Pop, Exclusive.HotTopic, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("HulkBuster", Series.AvengersAgeOfUltron, PopLine.Marvel, Exclusive.MarvelCollectorsCore, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Iron Man", Series.AvengersAssemble, PopLine.Pop, Exclusive.Amazon, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Iron Man", Series.MarvelBlackLight, PopLine.Pop, Exclusive.Target, true, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("War Machine", Series.CaptainAmericaCivilWar, PopLine.Pop, Exclusive.Common, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Captain America / Iron Man / Hawkeye / Spider-Man", Series.CaptainAmericaCivilWar, PopLine.Pop, Exclusive.Common, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Goku (Super Saiyan God)", Series.DragonBallZ, PopLine.PopAnimation, Exclusive.Funimantion, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Super Saiyan God Super Saiyan Goku", Series.DragonBallZResurrectionF, PopLine.PopAnimation, Exclusive.HotTopic, false, Chrome.None, false, 2));
+            funkoPopList.Add(new Funko("Killmonger", Series.BlackPanther, PopLine.Pop, Exclusive.Common, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Killmonger", Series.BlackPanther, PopLine.Pop, Exclusive.Common, false, Chrome.None, true, 1)); // chase
+            funkoPopList.Add(new Funko("Black Panther", Series.BlackPanther, PopLine.Pop, Exclusive.Target, true, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Black Panther", Series.BlackPanther, PopLine.Pop, Exclusive.MarvelCollectorsCore, true, Chrome.None, false,1));
+            funkoPopList.Add(new Funko("Black Panther", Series.CaptainAmericaCivilWar, PopLine.Pop, Exclusive.Common, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Black Panther", Series.Marvel, PopLine.Pop, Exclusive.Target, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Black Panther", Series.MarvelStudiosTheFirstTenYears, PopLine.Pop, Exclusive.Common, false, Chrome.Gold, false, 1));
+            funkoPopList.Add(new Funko("Venomized Black Panther", Series.Marvel, PopLine.Pop, Exclusive.Gamestop, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Moon Knight", Series.Marvel, PopLine.Pop, Exclusive.LAComicCon, false, Chrome.None, false, 2));
+            funkoPopList.Add(new Funko("Moon Knight", Series.Marvel, PopLine.Pop, Exclusive.Walgreens, false, Chrome.None, false, 1));
             //funkoPopList.Remove("Moon Knight");
             funkoPopList.Add(new Funko("Big Daddy", Exclusive.Common));
             funkoPopList.Add(new Funko("Miles Morales", Exclusive.Common));
