@@ -25,7 +25,8 @@ namespace FunkoCollection
         SDCC,
         NYCC,
         PX,
-        GalacticToys
+        GalacticToys,
+        AAA,
 
     }
 
@@ -48,6 +49,9 @@ namespace FunkoCollection
         AvengersAgeOfUltron,
         DragonBallZResurrectionF,
         AvengersAssemble,
+        Bioshock,
+        BioshockInfinite,
+        SpiderManIntoTheSpiderverse,
 
 
     }
@@ -59,7 +63,8 @@ namespace FunkoCollection
         PopHeroes,
         PopAnimation,
         PopRocks,
-        Marvel
+        Marvel,
+        Games,
     }
 
     public enum Chrome
@@ -80,8 +85,10 @@ namespace FunkoCollection
         private Exclusive store;
         private Series series;
         private PopLine line;
+        private int popLineNumber;
         private bool glowInTheDark;
         private Chrome color;
+        private bool metallic;
         private bool chase;
         private int quantity;
         //private bool valuted;
@@ -134,6 +141,18 @@ namespace FunkoCollection
             }
         }
 
+        public int PopLineNumber
+        {
+            get
+            {
+                return popLineNumber;
+            }
+            set
+            {
+                popLineNumber = value;
+            }
+        }
+
         public bool GlowInTheDark
         {
             get
@@ -182,6 +201,18 @@ namespace FunkoCollection
             }
         }
 
+        public bool Metallic
+        {
+            get
+            {
+                return metallic;
+            }
+            set
+            {
+
+            }
+        }
+
         //public bool Valuted
         //{
         //    get
@@ -198,11 +229,12 @@ namespace FunkoCollection
         public static List<Funko> funkoPopList = new List<Funko>();
 
 
-        public Funko(string characterName, Series seriesTitle, PopLine lineTitle, Exclusive storeExclusive, bool GITD, Chrome theColor, bool isChase , int theQuantity)
+        public Funko(string characterName, Series seriesTitle, PopLine lineTitle, int thePopLineNumber, Exclusive storeExclusive, bool GITD, Chrome theColor, bool isChase , int theQuantity)
         {
             Name = characterName;
             SeriesName = seriesTitle;
             LineName = lineTitle;
+            PopLineNumber = thePopLineNumber;
             Store = storeExclusive;
             GlowInTheDark = GITD;
             Color = theColor;
@@ -279,9 +311,14 @@ namespace FunkoCollection
         public static void AddPopsToList()
         {
 
-            funkoPopList.Add(new Funko("Super Saiyan Rose", Series.DragonBallSuper, PopLine.PopAnimation, Exclusive.HotTopic, false, Chrome.None, false, 1));
-            funkoPopList.Add(new Funko("Super Saiyan Vegeta", Series.DragonBallZ, PopLine.PopAnimation, Exclusive.HotTopic, false, Chrome.Red, false, 1));
-            funkoPopList.Add(new Funko("Super Saiyan Vegeta", Series.DragonBallZ, PopLine.PopAnimation, Exclusive.ToyTokyo, false, Chrome.Blue, false, 1));
+            funkoPopList.Add(new Funko("Super Saiyan Rose", Series.DragonBallSuper, PopLine.PopAnimation, 260, Exclusive.HotTopic, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Super Saiyan Vegeta", Series.DragonBallZ, PopLine.PopAnimation, 154, Exclusive.HotTopic, false, Chrome.Red, false, 1));
+            funkoPopList.Add(new Funko("Super Saiyan Vegeta", Series.DragonBallZ, PopLine.PopAnimation, 154, Exclusive.ToyTokyo, false, Chrome.Blue, false, 1));
+            funkoPopList.Add(new Funko("Super Saiyan Vegeta", Series.DragonBallZ, PopLine.PopAnimation, 154, Exclusive.AAA, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Super Saiyan 2 Vegeta", Series.DragonBallZ, PopLine.PopAnimation, 702, Exclusive.PX, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Vegeta Powering Up", Series.DragonBallSuper, PopLine.PopAnimation, 713, Exclusive.ChaliesCollectibles, true, Chrome.None, false, 1));
+
+
             funkoPopList.Add(new Funko("Carnage", Series.Venom, PopLine.Pop, Exclusive.FYE, false, Chrome.None, false, 2));
             funkoPopList.Add(new Funko("Carnage", Series.Venom, PopLine.Pop, Exclusive.Common, false, Chrome.None, false, 1));
             funkoPopList.Add(new Funko("Carnage", Series.Venom, PopLine.Pop, Exclusive.NYCC, false, Chrome.None, false, 1));
@@ -299,8 +336,8 @@ namespace FunkoCollection
             funkoPopList.Add(new Funko("Iron Man", Series.MarvelBlackLight, PopLine.Pop, Exclusive.Target, true, Chrome.None, false, 1));
             funkoPopList.Add(new Funko("War Machine", Series.CaptainAmericaCivilWar, PopLine.Pop, Exclusive.Common, false, Chrome.None, false, 1));
             funkoPopList.Add(new Funko("Captain America / Iron Man / Hawkeye / Spider-Man", Series.CaptainAmericaCivilWar, PopLine.Pop, Exclusive.Common, false, Chrome.None, false, 1));
-            funkoPopList.Add(new Funko("Goku (Super Saiyan God)", Series.DragonBallZ, PopLine.PopAnimation, Exclusive.Funimantion, false, Chrome.None, false, 1));
-            funkoPopList.Add(new Funko("Super Saiyan God Super Saiyan Goku", Series.DragonBallZResurrectionF, PopLine.PopAnimation, Exclusive.HotTopic, false, Chrome.None, false, 2));
+            funkoPopList.Add(new Funko("Goku (Super Saiyan God)", Series.DragonBallZ, PopLine.PopAnimation, 24, Exclusive.Funimantion, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Super Saiyan God Super Saiyan Goku", Series.DragonBallZResurrectionF, PopLine.PopAnimation, 121, Exclusive.HotTopic, false, Chrome.None, false, 2));
             funkoPopList.Add(new Funko("Killmonger", Series.BlackPanther, PopLine.Pop, Exclusive.Common, false, Chrome.None, false, 1));
             funkoPopList.Add(new Funko("Killmonger", Series.BlackPanther, PopLine.Pop, Exclusive.Common, false, Chrome.None, true, 1)); // chase
             funkoPopList.Add(new Funko("Black Panther", Series.BlackPanther, PopLine.Pop, Exclusive.Target, true, Chrome.None, false, 1));
@@ -312,10 +349,17 @@ namespace FunkoCollection
             funkoPopList.Add(new Funko("Moon Knight", Series.Marvel, PopLine.Pop, Exclusive.LAComicCon, false, Chrome.None, false, 2));
             funkoPopList.Add(new Funko("Moon Knight", Series.Marvel, PopLine.Pop, Exclusive.Walgreens, false, Chrome.None, false, 1));
             //funkoPopList.Remove("Moon Knight");
-            funkoPopList.Add(new Funko("Big Daddy", Exclusive.Common));
-            funkoPopList.Add(new Funko("Miles Morales", Exclusive.Common));
+            funkoPopList.Add(new Funko("Big Daddy", Series.Bioshock, PopLine.Games, 65, Exclusive.Common, false, Chrome.None, false, 2));
+            funkoPopList.Add(new Funko("Little Sister", Series.Bioshock, PopLine.Games, 66, Exclusive.Common, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Booker DeWitt",Series.BioshockInfinite, PopLine.Games, 62, Exclusive.Common, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Elizabeth", Series.BioshockInfinite, PopLine.Games, 63, Exclusive.Common, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Booker DeWitt (Skyhook)", Series.BioshockInfinite, PopLine.Games, 64, Exclusive.Common, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("SongBird",Series.BioshockInfinite, PopLine.Games, 68, Exclusive.Common, false, Chrome.None, false, 2));
+            funkoPopList.Add(new Funko("Miles Morales", Series.SpiderManIntoTheSpiderverse, PopLine.Pop, 402, Exclusive.Common, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Miles Morales", Series.SpiderManIntoTheSpiderverse, PopLine.Pop, 403, Exclusive.Common, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Spider-Man Noir", Series.SpiderManIntoTheSpiderverse, PopLine.Pop, 406, Exclusive.Common, false, Chrome.None, false, 2));
+
             funkoPopList.Add(new Funko("Black Bolt", Exclusive.Common));
-            funkoPopList.Add(new Funko("SongBird", Exclusive.Common));
             funkoPopList.Add(new Funko("The Joker (The Dark Knight Trilogy)", Exclusive.Common));
             funkoPopList.Add(new Funko("Thanos on Throne", Exclusive.HotTopic));
             funkoPopList.Add(new Funko("Joker (Banker Robber)", Exclusive.Common));
