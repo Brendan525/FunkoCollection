@@ -27,6 +27,7 @@ namespace FunkoCollection
         PX,
         GalacticToys,
         AAA,
+        Over9000,
 
     }
 
@@ -91,6 +92,8 @@ namespace FunkoCollection
         private bool metallic;
         private bool chase;
         private int quantity;
+        private bool flocked;
+        private int year;
         //private bool valuted;
 
         public string Name
@@ -209,7 +212,31 @@ namespace FunkoCollection
             }
             set
             {
+                metallic = value;
+            }
+        }
 
+        public bool Flocked
+        {
+            get
+            {
+                return flocked;
+            }
+            set
+            {
+                flocked = value;
+            }
+        }
+
+        public int Year
+        {
+            get
+            {
+                return year;
+            }
+            set
+            {
+                year = value;
             }
         }
 
@@ -229,7 +256,7 @@ namespace FunkoCollection
         public static List<Funko> funkoPopList = new List<Funko>();
 
 
-        public Funko(string characterName, Series seriesTitle, PopLine lineTitle, int thePopLineNumber, Exclusive storeExclusive, bool GITD, Chrome theColor, bool isChase , int theQuantity)
+        public Funko(string characterName, Series seriesTitle, PopLine lineTitle, int thePopLineNumber, Exclusive storeExclusive, bool GITD, Chrome theColor, bool isMetallic, bool isFlocked, bool isChase , int theQuantity, int releaseYear)
         {
             Name = characterName;
             SeriesName = seriesTitle;
@@ -238,8 +265,11 @@ namespace FunkoCollection
             Store = storeExclusive;
             GlowInTheDark = GITD;
             Color = theColor;
+            Metallic = isMetallic;
+            Flocked = isFlocked;
             Chase = isChase;
             Quantity = theQuantity;
+            Year = releaseYear;
             //this.Valuted = Valuted;
         }
 
@@ -311,20 +341,38 @@ namespace FunkoCollection
         public static void AddPopsToList()
         {
 
-            funkoPopList.Add(new Funko("Super Saiyan Rose", Series.DragonBallSuper, PopLine.PopAnimation, 260, Exclusive.HotTopic, false, Chrome.None, false, 1));
-            funkoPopList.Add(new Funko("Super Saiyan Vegeta", Series.DragonBallZ, PopLine.PopAnimation, 154, Exclusive.HotTopic, false, Chrome.Red, false, 1));
-            funkoPopList.Add(new Funko("Super Saiyan Vegeta", Series.DragonBallZ, PopLine.PopAnimation, 154, Exclusive.ToyTokyo, false, Chrome.Blue, false, 1));
-            funkoPopList.Add(new Funko("Super Saiyan Vegeta", Series.DragonBallZ, PopLine.PopAnimation, 154, Exclusive.AAA, false, Chrome.None, false, 1));
-            funkoPopList.Add(new Funko("Super Saiyan 2 Vegeta", Series.DragonBallZ, PopLine.PopAnimation, 702, Exclusive.PX, false, Chrome.None, false, 1));
-            funkoPopList.Add(new Funko("Vegeta Powering Up", Series.DragonBallSuper, PopLine.PopAnimation, 713, Exclusive.ChaliesCollectibles, true, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Super Saiyan Rose", Series.DragonBallSuper, PopLine.PopAnimation, 260, Exclusive.HotTopic, false, Chrome.None, false, false, false, 1, 2017));
+            funkoPopList.Add(new Funko("Super Saiyan Vegeta", Series.DragonBallZ, PopLine.PopAnimation, 154, Exclusive.HotTopic, false, Chrome.Red, false, false, false, 1, 2019));
+            funkoPopList.Add(new Funko("Super Saiyan Vegeta", Series.DragonBallZ, PopLine.PopAnimation, 154, Exclusive.ToyTokyo, false, Chrome.Blue, false, false, false, 1, 2018));
+            funkoPopList.Add(new Funko("Super Saiyan Vegeta", Series.DragonBallZ, PopLine.PopAnimation, 154, Exclusive.AAA, false, Chrome.None, false, false, false, 1, 2016));
+            funkoPopList.Add(new Funko("Super Saiyan 2 Vegeta", Series.DragonBallZ, PopLine.PopAnimation, 702, Exclusive.PX, false, Chrome.None, false, false, false, 1, 2019));
+            funkoPopList.Add(new Funko("Vegeta Powering Up", Series.DragonBallSuper, PopLine.PopAnimation, 713, Exclusive.ChaliesCollectibles, true, Chrome.None, false, false, false, 1, 2020));
+            funkoPopList.Add(new Funko("Beerus", Series.DragonBallSuper, PopLine.PopAnimation, 514, Exclusive.GalacticToys, false, Chrome.None, false, false, false, 1, 2018));
+            funkoPopList.Add(new Funko("Whis", Series.DragonBallSuper, PopLine.PopAnimation, 317, Exclusive.Funimantion, true, Chrome.None, false, false, false, 1, 2020));
+            funkoPopList.Add(new Funko("Zamasu", Series.DragonBallSuper, PopLine.PopAnimation, 316, Exclusive.Walmart, true, Chrome.None, false, false, false, 1, 2018));
+            funkoPopList.Add(new Funko("Fused Zamasu (Enlargement)", Series.DragonBallSuper, PopLine.PopAnimation, 714, Exclusive.HotTopic, false, Chrome.None, false, false, false, 1, 2019));
+            funkoPopList.Add(new Funko("SSG Goku", Series.DragonBallSuper, PopLine.PopAnimation, 827, Exclusive.SDCC, false, Chrome.None, false, false, false, 4, 2020));
+            funkoPopList.Add(new Funko("SSGSS Vegito", Series.DragonBallSuper, PopLine.PopAnimation, 515, Exclusive.HotTopic, false, Chrome.None, true, false, false, 2, 2018));
+            funkoPopList.Add(new Funko("Super Saiyan Vegito", Series.DragonBallZ, PopLine.PopAnimation, 491, Exclusive.AAA, false, Chrome.None, false, false, false, 2, 2018));
+            funkoPopList.Add(new Funko("Legendary Super Saiyan Broly", Series.DragonBallZ, PopLine.PopAnimation, 623, Exclusive.GalacticToys, true, Chrome.None, false, false, false, 1, 2019));
+            funkoPopList.Add(new Funko("Goku", Series.DragonBallZ, PopLine.PopAnimation, 9, Exclusive.HotTopic, false, Chrome.None, false, false, false, 2, 2014));
+            funkoPopList.Add(new Funko("Majin Vegeta", Series.DragonBallZ, PopLine.PopAnimation, 445, Exclusive.Over9000, false, Chrome.None, false, false, false, 1, 2018));
+            funkoPopList.Add(new Funko("Vegeta", Series.DragonBallZ, PopLine.PopAnimation, 669, Exclusive.NYCC, false, Chrome.None, false, false, false, 1, 2019));
+            funkoPopList.Add(new Funko("Vegeta", Series.DragonBallZ, PopLine.PopAnimation, 10, Exclusive.Common, false, Chrome.None, false, false, false, 1, 2014));
+            funkoPopList.Add(new Funko("Vegeta", Series.DragonBallZ, PopLine.PopAnimation, 614, Exclusive.BoxLunch, false, Chrome.None, true, false, false, 1, 2019));
+            funkoPopList.Add(new Funko("Piccolo", Series.DragonBallZ, PopLine.PopAnimation, 11, Exclusive.Common, false, Chrome.None, false, false, false, 1, 2014));
+            funkoPopList.Add(new Funko("Piccolo", Series.DragonBallZ, PopLine.PopAnimation, 704, Exclusive.FYE, false, Chrome.None, true, false, false, 1, 2019));
+            funkoPopList.Add(new Funko("Piccolo", Series.DragonBallZ, PopLine.PopAnimation, 670, Exclusive.NYCC, false, Chrome.None, false, false, false, 2, 2019));
+            funkoPopList.Add(new Funko("Frieza (Final Form)", Series.DragonBallZ, PopLine.PopAnimation, 12, Exclusive.Common, false, Chrome.None, false, false, false, 1, 2014));
+            funkoPopList.Add(new Funko("Golden Frieza", Series.DragonBallZResurrectionF, PopLine.PopAnimation, 47, Exclusive.SDCC, false, Chrome.None, true, false, false, 1, 2015));
 
 
-            funkoPopList.Add(new Funko("Carnage", Series.Venom, PopLine.Pop, Exclusive.FYE, false, Chrome.None, false, 2));
-            funkoPopList.Add(new Funko("Carnage", Series.Venom, PopLine.Pop, Exclusive.Common, false, Chrome.None, false, 1));
-            funkoPopList.Add(new Funko("Carnage", Series.Venom, PopLine.Pop, Exclusive.NYCC, false, Chrome.None, false, 1));
-            funkoPopList.Add(new Funko("Carnage",Series.Marvel, PopLine.Marvel, Exclusive.HotTopic, false, Chrome.None, false, 2));
-            funkoPopList.Add(new Funko("Anti-Venom", Series.Marvel, PopLine.Marvel, Exclusive.HotTopic, false, Chrome.None, false, 1));
-            funkoPopList.Add(new Funko("Anti-Venom", Series.Marvel, PopLine.Marvel, Exclusive.BoxLunch, true, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Carnage", Series.Venom, PopLine.Pop, 372, Exclusive.FYE, false, Chrome.None, false, false, false, 2, 2018));
+            funkoPopList.Add(new Funko("Carnage", Series.Venom, PopLine.Pop, 367, Exclusive.Common, false, Chrome.None, false, false, false, 1, 2018));
+            funkoPopList.Add(new Funko("Carnage", Series.Venom, PopLine.Pop, 371, Exclusive.NYCC, false, Chrome.None, false, false, false, 1, 2018));
+            funkoPopList.Add(new Funko("Carnage", Series.Marvel, PopLine.Marvel, Exclusive.HotTopic, false, Chrome.None, false, false, false, 2, 2015));
+            funkoPopList.Add(new Funko("Anti-Venom", Series.Marvel, PopLine.Marvel, 2015, Exclusive.HotTopic, false,Chrome.None, false, false, false, 1, 2015));
+            funkoPopList.Add(new Funko("Anti-Venom", Series.Marvel, PopLine.Marvel, 100, Exclusive.BoxLunch, true, Chrome.None, false, false, false, 1, 2016));
             funkoPopList.Add(new Funko("Anti-Venom", Series.Venom, PopLine.Pop, Exclusive.BoxLunch, true, Chrome.None, false, 1));
             funkoPopList.Add(new Funko("Iron Man", Series.Marvel, PopLine.Marvel, Exclusive.Common, false, Chrome.None, false, 1));
             funkoPopList.Add(new Funko("Iron Man", Series.AvengersInfinityWar, PopLine.Pop, Exclusive.Target, false, Chrome.Red, false, 1));
