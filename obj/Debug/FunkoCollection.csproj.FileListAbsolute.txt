@@ -8,3 +8,5 @@
 /Users/Brendan/Desktop/C#Projects/FunkoCollection/obj/Debug/FunkoCollection.csproj.CoreCompileInputs.cache
 /Users/Brendan/Desktop/C#Projects/FunkoCollection/obj/Debug/FunkoCollection.exe
 /Users/Brendan/Desktop/C#Projects/FunkoCollection/obj/Debug/FunkoCollection.pdb
+/Users/Brendan/Desktop/C#Projects/FunkoCollection/bin/Debug/FunkoCollection.exe
+/Users/Brendan/Desktop/C#Projects/FunkoCollection/bin/Debug/FunkoCollection.pdb
