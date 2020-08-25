@@ -57,8 +57,7 @@ namespace FunkoCollection
         TheAmazingSpiderMan,
         TheAmazingSpiderMan2,
         SpiderMan,
-
-
+        MarvelZombies,
     }
 
     public enum PopLine
@@ -466,10 +465,10 @@ namespace FunkoCollection
             //funkoPopList.Add(new Funko("Elizabeth", Series.BioshockInfinite, PopLine.Games, 63, Exclusive.Common, false, Chrome.None, false, 1));
             //funkoPopList.Add(new Funko("Booker DeWitt (Skyhook)", Series.BioshockInfinite, PopLine.Games, 64, Exclusive.Common, false, Chrome.None, false, 1));
             //funkoPopList.Add(new Funko("SongBird",Series.BioshockInfinite, PopLine.Games, 68, Exclusive.Common, false, Chrome.None, false, 2));
-            funkoPopList.Add(new Funko("Miles Morales", Series.SpiderManIntoTheSpiderverse, PopLine.Pop, 402, Exclusive.Common, false, Chrome.None, false, false, false, false, 1, 2018));
-            funkoPopList.Add(new Funko("Miles Morales", Series.SpiderManIntoTheSpiderverse, PopLine.Pop, 403, Exclusive.Common, false, Chrome.None, false, false, false, false, 1, 2018));
-            funkoPopList.Add(new Funko("Spider-Man Noir", Series.SpiderManIntoTheSpiderverse, PopLine.Pop, 406, Exclusive.Common, false, Chrome.None, false, false, false, false, 2, 2018));
-            funkoPopList.Add(new Funko("Iron Spider", Series.AvengersEndGame, PopLine.Pop, 574, Exclusive.Common, false, Chrome.None, false, false, false, false, 1, 2019));
+            funkoPopList.Add(new Funko("Miles Morales", Series.SpiderManIntoTheSpiderverse, PopLine.Pop, 402, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2018));
+            funkoPopList.Add(new Funko("Miles Morales", Series.SpiderManIntoTheSpiderverse, PopLine.Pop, 403, Exclusive.Common, MomentType.None,  false, Chrome.None, false, false, false, 1, 2018));
+            funkoPopList.Add(new Funko("Spider-Man Noir", Series.SpiderManIntoTheSpiderverse, PopLine.Pop, 406, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 2, 2018));
+            funkoPopList.Add(new Funko("Iron Spider", Series.AvengersEndGame, PopLine.Pop, 574, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2019));
             //funkoPopList.Add(new Funko("Black Bolt", Exclusive.Common));
             //funkoPopList.Add(new Funko("The Joker (The Dark Knight Trilogy)", Exclusive.Common));
             //funkoPopList.Add(new Funko("Thanos on Throne", Exclusive.HotTopic));
@@ -502,8 +501,11 @@ namespace FunkoCollection
             funkoPopList.Add(new Funko("Great Ape Goku", Series.DragonBallZ, PopLine.PopAnimation, 624, Exclusive.EntertainmentEarth, MomentType.None, false, Chrome.None, false,  false, false, 1, 2019));
             //funkoPopList.Add(new Funko("Hulk vs HulkBuster", Exclusive.Walgreens));
             //funkoPopList.Add(new Funko("Iron Man vs Whiplash", Exclusive.MarvelCollectorsCore));
-            //funkoPopList.Add(new Funko("Venom", Exclusive.Common));
-            //funkoPopList.Add(new Funko("Venom (Leathal Protector)", Exclusive.MarvelCollectorsCore));
+            funkoPopList.Add(new Funko("Venom", Series.Venom, PopLine.Pop, 363, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 2, 2018));
+            funkoPopList.Add(new Funko("Venom", Series.Venom, PopLine.Pop, 373, Exclusive.MarvelCollectorsCore, MomentType.None, false, Chrome.None, false, false, false, 1, 2018));
+            funkoPopList.Add(new Funko("Venomized Thanos", Series.Venom, PopLine.Pop, 510, Exclusive.BoxLunch, MomentType.None, true, Chrome.None, false, false, false, 1, 2020));
+            funkoPopList.Add(new Funko("Zombie Venom", Series.MarvelZombies, PopLine.Pop, 664, Exclusive.Gamestop, MomentType.None, false, Chrome.None, false, false, false, 1, 2020));
+            funkoPopList.Add(new Funko("Corrupted Venom", Series.Venom, PopLine.Pop, 517, Exclusive.LAComicCon, MomentType.None, false, Chrome.None, false, false, false, 1, 2019));
             funkoPopList.Add(new Funko("Spider-Man", Series.TheAmazingSpiderMan, PopLine.Marvel, 15,Exclusive.Common, MomentType.None, false, Chrome.None, false, false,  false, 1 , 2012));
             funkoPopList.Add(new Funko("Spider-Man", Series.TheAmazingSpiderMan2, PopLine.Marvel, 45, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2014));
             funkoPopList.Add(new Funko("Electro", Series.TheAmazingSpiderMan2, PopLine.Marvel, 46, Exclusive.Common, MomentType.None, true, Chrome.None, false, false, false, 1, 2014));
@@ -511,7 +513,12 @@ namespace FunkoCollection
             funkoPopList.Add(new Funko("Scarlet Spider", Series.Marvel, PopLine.Pop, 187, Exclusive.Walgreens, MomentType.None, false, Chrome.None,  false, false, false, 1, 2016));
             funkoPopList.Add(new Funko("Spider-Man (Stealth Suit)", Series.Marvel, PopLine.Marvel, 195, Exclusive.HotTopic, MomentType.None, true, Chrome.None, false, false, false, 1, 2016));
             funkoPopList.Add(new Funko("Six Arm Spider-Man", Series.Marvel, PopLine.Pop, 313, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2018));
-            funkoPopList.Add(new Funko("Venom vs. Spider-Man", Series.Marvel, PopLine.Pop, 438, Exclusive.PX, MomentType.ComicMoment, false, Chrome.None, true, false, false, 1, 2018));
+            funkoPopList.Add(new Funko("Venom vs. Spider-Man", Series.Marvel, PopLine.Pop, 438, Exclusive.PX, MomentType.ComicMoment, false, Chrome.None, true, false, false, 1, 2020));
+            funkoPopList.Add(new Funko("Spider-Man", Series.Marvel80Years, PopLine.Pop, 593, Exclusive.HotTopic, MomentType.None, false, Chrome.None, true, false, false, 2, 2020));
+            funkoPopList.Add(new Funko("Spider-Man vs. Spider-Man (2 Pack)", Series.Marvel, PopLine.Pop, 0, Exclusive.EntertainmentEarth, MomentType.None, false, Chrome.None, false, false, false, 1, 2020));
+            funkoPopList.Add(new Funko("Spider-Man", Series.Marvel, PopLine.Pop, 652, Exclusive.Target, MomentType.None, true, Chrome.None, false, false, false, 2, 2020));
+            funkoPopList.Add(new Funko("Spider-Man (Captain Universe)", Series.Marvel80Years, PopLine.Pop, 593, Exclusive.HotTopic, MomentType.None, false, Chrome.None, true, false, false, 1, 2020));
+            funkoPopList.Add(new Funko("Spider-Man", Series.Marvel, PopLine.Pop, 672, Exclusive.BoxLunch, MomentType.None, false, Chrome.None, false, false, false, 1, 2020));
             //funkoPopList.Add(new Funko("Iron Spiderman", Exclusive.Walgreens));
             //funkoPopList.Add(new Funko("Spider-Man (I Love Pi Shirt)", Exclusive.BoxLunch));
             //funkoPopList.Add(new Funko("Notorious B.I.G with Crown", Exclusive.FunkoStore));
