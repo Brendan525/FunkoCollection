@@ -67,6 +67,7 @@ namespace FunkoCollection
         GuardiansOfTheGalaxy,
         Pokèmon,
         ThorRagnarok,
+        DCSuperHeroes,
     }
 
     public enum PopLine
@@ -79,6 +80,7 @@ namespace FunkoCollection
         PopMarvel,
         Games,
         PopGames,
+        PopTelevision,
     }
 
     public enum Chrome
@@ -450,36 +452,36 @@ namespace FunkoCollection
             funkoPopList.Add(new Funko("Iron Man", Series.AvengersEndGame, PopLine.Pop,529, Exclusive.NYCC, MomentType.None, false, Chrome.None, false, false, false, 1, 2019));
             funkoPopList.Add(new Funko("Iron Man (I Am Iron Man)", Series.AvengersEndGame, PopLine.Pop, 580, Exclusive.PX, MomentType.None, true, Chrome.None, false, false, false, 1, 2020));
             funkoPopList.Add(new Funko("Iron Man", Series.Marvel, PopLine.Pop, 649, Exclusive.Target, MomentType.None, true, Chrome.None, false, false, false, 2, 2020));
-            //funkoPopList.Add(new Funko("Iron Man (Unmasked)", Series.CaptainAmericaCivilWar, PopLine.Pop, 126, Exclusive.HotTopic, false, Chrome.None, false, false, false, 1, 2016));
-            //funkoPopList.Add(new Funko("HulkBuster", Series.AvengersAgeOfUltron, PopLine.Marvel, 73, Exclusive.MarvelCollectorsCore, false, Chrome.None, false, false, false, 1, 2015));
+            funkoPopList.Add(new Funko("Iron Man (Unmasked)", Series.CaptainAmericaCivilWar, PopLine.Pop, 126, Exclusive.HotTopic, MomentType.None, false, Chrome.None, false, false, false, 1, 2016));
+            funkoPopList.Add(new Funko("HulkBuster", Series.AvengersAgeOfUltron, PopLine.PopMarvel, 73, Exclusive.MarvelCollectorsCore, MomentType.None, false, Chrome.None, false, false, false, 1, 2015));
             funkoPopList.Add(new Funko("Iron Man", Series.AvengersAssemble, PopLine.Pop, 584, Exclusive.Amazon, MomentType.None, false, Chrome.None, false, false, false, 2, 2020));
-            //funkoPopList.Add(new Funko("Iron Man", Series.MarvelBlackLight, PopLine.Pop, Exclusive.Target, true, Chrome.None, false, 1));
-            //funkoPopList.Add(new Funko("War Machine", Series.CaptainAmericaCivilWar, PopLine.Pop, Exclusive.Common, false, Chrome.None, false, 1));
-            //funkoPopList.Add(new Funko("Captain America / Iron Man / Hawkeye / Spider-Man", Series.CaptainAmericaCivilWar, PopLine.Pop, Exclusive.Common, false, Chrome.None, false, 1, 2016));
+            funkoPopList.Add(new Funko("War Machine", Series.CaptainAmericaCivilWar, PopLine.Pop, 128, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2016));
+            funkoPopList.Add(new Funko("Captain America / Iron Man / Hawkeye / Spider-Man", Series.CaptainAmericaCivilWar, PopLine.Pop, 0, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2016));
             funkoPopList.Add(new Funko("Goku (Super Saiyan God)", Series.DragonBallZ, PopLine.PopAnimation, 24, Exclusive.Funimantion, MomentType.None, false, Chrome.None, false, false, false, 1, 2014));
             funkoPopList.Add(new Funko("Super Saiyan God Super Saiyan Goku", Series.DragonBallZResurrectionF, PopLine.PopAnimation, 121, Exclusive.HotTopic, MomentType.None, false, Chrome.None, false, false, false, 2, 2016));
-            //funkoPopList.Add(new Funko("Killmonger", Series.BlackPanther, PopLine.Pop, Exclusive.Common, false, Chrome.None, false, 1));
-            //funkoPopList.Add(new Funko("Killmonger", Series.BlackPanther, PopLine.Pop, Exclusive.Common, false, Chrome.None, true, 1)); // chase
-            //funkoPopList.Add(new Funko("Black Panther", Series.BlackPanther, PopLine.Pop, Exclusive.Target, true, Chrome.None, false, 1));
-            //funkoPopList.Add(new Funko("Black Panther", Series.BlackPanther, PopLine.Pop, Exclusive.MarvelCollectorsCore, true, Chrome.None, false,1));
-            //funkoPopList.Add(new Funko("Black Panther", Series.CaptainAmericaCivilWar, PopLine.Pop, Exclusive.Common, false, Chrome.None, false, 1));
-            //funkoPopList.Add(new Funko("Black Panther", Series.Marvel, PopLine.Pop, Exclusive.Target, false, Chrome.None, false, 1));
-            //funkoPopList.Add(new Funko("Black Panther", Series.MarvelStudiosTheFirstTenYears, PopLine.Pop, Exclusive.Common, false, Chrome.Gold, false, 1));
-            //funkoPopList.Add(new Funko("Venomized Black Panther", Series.Marvel, PopLine.Pop, Exclusive.Gamestop, false, Chrome.None, false, 1));
-            //funkoPopList.Add(new Funko("Moon Knight", Series.Marvel, PopLine.Pop, Exclusive.LAComicCon, false, Chrome.None, false, 2));
-            //funkoPopList.Add(new Funko("Moon Knight", Series.Marvel, PopLine.Pop, Exclusive.Walgreens, false, Chrome.None, false, 1));
+            funkoPopList.Add(new Funko("Killmonger", Series.BlackPanther, PopLine.Pop, 278, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2018));
+            funkoPopList.Add(new Funko("Killmonger", Series.BlackPanther, PopLine.Pop, 278, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, true, 1, 2018)); // chase
+            funkoPopList.Add(new Funko("Black Panther", Series.BlackPanther, PopLine.Pop, 273, Exclusive.Target, MomentType.None, true, Chrome.None, false, false, false, 1, 2018));
+            funkoPopList.Add(new Funko("Black Panther", Series.BlackPanther, PopLine.Pop, 612, Exclusive.MarvelCollectorsCore, MomentType.None, true, Chrome.None, false, false, false, 1, 2020));
+            funkoPopList.Add(new Funko("Black Panther", Series.CaptainAmericaCivilWar, PopLine.Pop, 130, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2016));
+            funkoPopList.Add(new Funko("Black Panther", Series.Marvel, PopLine.Pop, 314, Exclusive.Target, MomentType.None, false, Chrome.None, false, false, false, 1, 2018));
+            funkoPopList.Add(new Funko("Black Panther", Series.MarvelStudiosTheFirstTenYears, PopLine.Pop, 383, Exclusive.Common, MomentType.None, false, Chrome.Gold, false, false, false, 1, 2018));
+            funkoPopList.Add(new Funko("Venomized Black Panther", Series.Marvel, PopLine.Pop, 370, Exclusive.Gamestop, MomentType.None, false, Chrome.None, false, false, false, 1,2018)); ;
+            funkoPopList.Add(new Funko("Moon Knight", Series.Marvel, PopLine.Pop, 266, Exclusive.LAComicCon, MomentType.None, false, Chrome.None, false, false, false, 2, 2017));
+            funkoPopList.Add(new Funko("Moon Knight", Series.Marvel, PopLine.Pop, 272, Exclusive.Walgreens, MomentType.None, false, Chrome.None, false, false, false, 1, 2017));
             ////funkoPopList.Remove("Moon Knight");
-            //funkoPopList.Add(new Funko("Big Daddy", Series.Bioshock, PopLine.Games, 65, Exclusive.Common, false, Chrome.None, false, 2));
-            //funkoPopList.Add(new Funko("Little Sister", Series.Bioshock, PopLine.Games, 66, Exclusive.Common, false, Chrome.None, false, 1));
-            //funkoPopList.Add(new Funko("Booker DeWitt",Series.BioshockInfinite, PopLine.Games, 62, Exclusive.Common, false, Chrome.None, false, 1));
-            //funkoPopList.Add(new Funko("Elizabeth", Series.BioshockInfinite, PopLine.Games, 63, Exclusive.Common, false, Chrome.None, false, 1));
-            //funkoPopList.Add(new Funko("Booker DeWitt (Skyhook)", Series.BioshockInfinite, PopLine.Games, 64, Exclusive.Common, false, Chrome.None, false, 1));
-            //funkoPopList.Add(new Funko("SongBird",Series.BioshockInfinite, PopLine.Games, 68, Exclusive.Common, false, Chrome.None, false, 2));
+            funkoPopList.Add(new Funko("Big Daddy", Series.Bioshock, PopLine.PopGames, 65, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 2, 2015));
+            funkoPopList.Add(new Funko("Little Sister", Series.Bioshock, PopLine.PopGames, 66, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2015));
+            funkoPopList.Add(new Funko("Booker DeWitt", Series.BioshockInfinite, PopLine.PopGames, 62, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2015));
+            funkoPopList.Add(new Funko("Elizabeth", Series.BioshockInfinite, PopLine.PopGames, 63, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2015));
+            funkoPopList.Add(new Funko("Booker DeWitt (Skyhook)", Series.BioshockInfinite, PopLine.PopGames, 64, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2015));
+            funkoPopList.Add(new Funko("SongBird",Series.BioshockInfinite, PopLine.PopGames, 68, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 2, 2015));
             funkoPopList.Add(new Funko("Miles Morales", Series.SpiderManIntoTheSpiderverse, PopLine.Pop, 402, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2018));
             funkoPopList.Add(new Funko("Miles Morales", Series.SpiderManIntoTheSpiderverse, PopLine.Pop, 403, Exclusive.Common, MomentType.None,  false, Chrome.None, false, false, false, 1, 2018));
             funkoPopList.Add(new Funko("Spider-Man Noir", Series.SpiderManIntoTheSpiderverse, PopLine.Pop, 406, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 2, 2018));
             funkoPopList.Add(new Funko("Iron Spider", Series.AvengersEndGame, PopLine.Pop, 574, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2019));
-            //funkoPopList.Add(new Funko("Black Bolt", Exclusive.Common));
+            funkoPopList.Add(new Funko("Black Bolt (Blue)", Series.Marvel, PopLine.Pop, 191, Exclusive.PX, MomentType.None, false, Chrome.None, false, false, false, 1, 2017));
+            funkoPopList.Add(new Funko("Black Bolt", Series.Marvel, PopLine.Pop, 191, Exclusive.PX, MomentType.None, false, Chrome.None, false, false, false, 1, 2017));
             funkoPopList.Add(new Funko("The Joker", Series.TheDarkKnightTrilogy, PopLine.PopHeroes, 36, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2013));
             funkoPopList.Add(new Funko("The Joker (Banker Robber)", Series.TheDarkKnightTrilogy, PopLine.PopHeroes, 37, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2013));
             funkoPopList.Add(new Funko("The Joker (Batman 1989)", Series.Batman, PopLine.PopHeroes, 337, Exclusive.Gamestop, MomentType.None, false, Chrome.None, true, false, false, 1, 2020));
@@ -495,34 +497,25 @@ namespace FunkoCollection
             funkoPopList.Add(new Funko("Thanos", Series.AvengersInfinityWar, PopLine.Pop, 289, Exclusive.Walmart, MomentType.None, false, Chrome.Orange, false, false, false, 1, 2018));
             funkoPopList.Add(new Funko("Thanos", Series.AvengersInfinityWar, PopLine.Pop, 415, Exclusive.Walmart, MomentType.None, false, Chrome.Purple, false, false, false, 1, 2018));
             funkoPopList.Add(new Funko("Thanos", Series.GuardiansOfTheGalaxy, PopLine.PopMarvel, 78, Exclusive.EntertainmentEarth, MomentType.None, true, Chrome.None, false, false, false, 1, 2015));
-
             funkoPopList.Add(new Funko("Mewtwo", Series.Pokèmon, PopLine.PopGames, 581, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2020));
             funkoPopList.Add(new Funko("Mewtwo", Series.Pokèmon, PopLine.PopGames, 581, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2020));
             funkoPopList.Add(new Funko("Pikachu", Series.Pokèmon, PopLine.PopGames, 353, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2018));
             funkoPopList.Add(new Funko("Charmander", Series.Pokèmon, PopLine.PopGames, 455, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2019));
-
-
             funkoPopList.Add(new Funko("Thor", Series.Marvel, PopLine.Pop, 650, Exclusive.Target, MomentType.None, true, Chrome.None, false, false, false, 2, 2020));
             funkoPopList.Add(new Funko("Doctor Strange (Ghost Rider)", Series.Marvel, PopLine.Pop, 412, Exclusive.LAComicCon, MomentType.None, false, Chrome.None, false, false, false, 2, 2018));
             funkoPopList.Add(new Funko("Doctor Strange", Series.Marvel, PopLine.Pop, 651, Exclusive.Target, MomentType.None, true, Chrome.None, false, false, false, 1, 2020));
             funkoPopList.Add(new Funko("Hulk (10 inch)", Series.ThorRagnarok, PopLine.Pop, 241, Exclusive.Target, MomentType.None, false, Chrome.None, false, false, false, 1, 2017));
-            //funkoPopList.Add(new Funko("Tulip", Exclusive.Common));
-            //funkoPopList.Add(new Funko("Cassidy (Bloody)", Exclusive.HotTopic));
-            //funkoPopList.Add(new Funko("Thanos (Red Chrome)", Exclusive.Walmart));
-            //funkoPopList.Add(new Funko("Thanos (Blue Chrome)", Exclusive.Walmart));
-            //funkoPopList.Add(new Funko("Thanos (Yellow Chrome)", Exclusive.Walmart));
-            //funkoPopList.Add(new Funko("Thanos (Green Chrome)", Exclusive.Walmart));
-            //funkoPopList.Add(new Funko("Thanos (Purple Chrome)", Exclusive.Walmart));
-            //funkoPopList.Add(new Funko("Thanos (Orange Chrome)", Exclusive.Walmart));
-            //funkoPopList.Add(new Funko("Joker (Death of the Family)", Exclusive.HotTopic));
-            //funkoPopList.Add(new Funko("Joker (Death of the Family GITD)", Exclusive.HotTopic));
+            funkoPopList.Add(new Funko("Tulip", Series.Preacher, PopLine.PopTelevision, 376, Exclusive.PX, MomentType.None, false, Chrome.None, false, false, false, 1, 2016));
+            funkoPopList.Add(new Funko("Cassidy (Bloody)", Series.Preacher, PopLine.PopTelevision, 368, Exclusive.HotTopic, MomentType.None, false, Chrome.None, false, false, false, 1, 2016));
+            funkoPopList.Add(new Funko("Cassidy", Series.Preacher, PopLine.PopTelevision, 367, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2016));
+            funkoPopList.Add(new Funko("The Joker", Series.DCSuperHeroes, PopLine.PopHeroes, 273, Exclusive.HotTopic, MomentType.None, false, Chrome.None, false, false, false, 1, 2019));
+            funkoPopList.Add(new Funko("The Joker", Series.DCSuperHeroes, PopLine.PopHeroes, 273, Exclusive.HotTopic, MomentType.None, true, Chrome.None, false, false, false, 1, 2020));
             //funkoPopList.Add(new Funko("Super Vegeta", Exclusive.Target));
             //funkoPopList.Add(new Funko("Super Saiyan Future Trunks", Exclusive.HotTopic));
-            //funkoPopList.Add(new Funko("Arseface", Exclusive.Common));
-            //funkoPopList.Add(new Funko("Jessie Custer (Arms Out)", Exclusive.Gamestop));
-            //funkoPopList.Add(new Funko("Jessie Custer", Exclusive.Common));
-            //funkoPopList.Add(new Funko("Elizabeth", Exclusive.Common));
-            //funkoPopList.Add(new Funko("Ice Man (Flocked)", Exclusive.FunkoStore));
+            funkoPopList.Add(new Funko("Arseface", Series.Preacher, PopLine.PopTelevision, 366, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2016));
+            funkoPopList.Add(new Funko("Jessie Custer", Series.Preacher, PopLine.PopTelevision, 365, Exclusive.Gamestop, MomentType.None, false, Chrome.None, false, false, false, 1, 2016));
+            funkoPopList.Add(new Funko("Jessie Custer", Series.Preacher, PopLine.PopTelevision, 364, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2016));
+            funkoPopList.Add(new Funko("Ice Man", Series.Marvel80Years, PopLine.Pop, 504, Exclusive.FunkoStore, MomentType.None, false, Chrome.None, false, true, false, 1, 2019));
             funkoPopList.Add(new Funko("Goku Ultra Instinst", Series.DragonBallSuper, PopLine.PopAnimation, 386, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 1, 2018));
             funkoPopList.Add(new Funko("SSGSS Goku",Series.DragonBallSuper, PopLine.PopAnimation, 668, Exclusive.HotTopic, MomentType.None, false, Chrome.None, false, false, false, 1 ,2019));
             funkoPopList.Add(new Funko("SSGSS Goku (Kamehameha)", Series.DragonBallSuper, PopLine.PopAnimation, 563, Exclusive.ChaliesCollectibles, MomentType.None, false, Chrome.None, true, false, false, 1, 2019));
@@ -532,8 +525,6 @@ namespace FunkoCollection
             funkoPopList.Add(new Funko("SSG Goku", Series.DragonBallSuper, PopLine.PopAnimation, 827, Exclusive.SDCC, MomentType.None, false, Chrome.None, false, false, false, 4, 2020));
             //funkoPopList.Add(new Funko("Logan", Exclusive.HotTopic));
             funkoPopList.Add(new Funko("Great Ape Goku", Series.DragonBallZ, PopLine.PopAnimation, 624, Exclusive.EntertainmentEarth, MomentType.None, false, Chrome.None, false,  false, false, 1, 2019));
-            //funkoPopList.Add(new Funko("Hulk vs HulkBuster", Exclusive.Walgreens));
-            //funkoPopList.Add(new Funko("Iron Man vs Whiplash", Exclusive.MarvelCollectorsCore));
             funkoPopList.Add(new Funko("Venom", Series.Venom, PopLine.Pop, 363, Exclusive.Common, MomentType.None, false, Chrome.None, false, false, false, 2, 2018));
             funkoPopList.Add(new Funko("Venom", Series.Venom, PopLine.Pop, 373, Exclusive.MarvelCollectorsCore, MomentType.None, false, Chrome.None, false, false, false, 1, 2018));
             funkoPopList.Add(new Funko("Venomized Thanos", Series.Venom, PopLine.Pop, 510, Exclusive.BoxLunch, MomentType.None, true, Chrome.None, false, false, false, 1, 2020));
